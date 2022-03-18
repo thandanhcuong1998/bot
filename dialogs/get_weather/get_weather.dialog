@@ -1,0 +1,63 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "FELYNF",
+    "name": "get_weather",
+    "comment": "Get the current weather conditions"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "description": "",
+        "id": "qSYicL"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "UrDOUQ"
+          },
+          "activity": "${SendActivity_UrDOUQ()}",
+          "disabled": true
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "WKiMD1"
+          },
+          "method": "GET",
+          "headers": {},
+          "url": "http://oshcglobal/api/test",
+          "resultProperty": "dialog.api_response",
+          "responseType": "json"
+        },
+        {
+          "$kind": "Microsoft.SetProperties",
+          "$designer": {
+            "id": "9hAThF"
+          },
+          "assignments": [
+            {
+              "property": "dialog.content",
+              "value": "=dialog.api_response.content.data"
+            }
+          ]
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "kFUGyd"
+          },
+          "activity": "${SendActivity_kFUGyd()}"
+        }
+      ]
+    }
+  ],
+  "generator": "get_weather.lg",
+  "recognizer": "get_weather.lu.qna",
+  "id": "get_weather"
+}

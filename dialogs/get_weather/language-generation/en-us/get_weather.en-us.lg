@@ -1,0 +1,16 @@
+[import](common.lg)
+
+# SendActivity_UrDOUQ()
+[Activity
+    Text = ${SendActivity_UrDOUQ_text()}
+]
+
+# SendActivity_UrDOUQ_text()
+- Hello, I'm Anthony
+# SendActivity_kFUGyd()
+[Activity
+    Text = ${SendActivity_kFUGyd_text()}
+]
+
+# SendActivity_kFUGyd_text()
+- Anthony ${dialog.content}
